@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name='robots' content='noindex, nofollow' />
   <title>Wedding Invitation</title>
 
   <!-- AOS Animation -->
@@ -10,6 +11,9 @@
 
   <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +23,16 @@
 </head>
 <body>
 
-  <header data-aos="fade-down">
+<!-- Envelope Cover -->
+<div class="envelope" id="envelope">
+  <div class="envelope-top"></div>
+  <div class="envelope-bottom"></div>
+  <h1 id="openInvitation">Open Invitation</h1>
+</div>
+
+
+
+  <header data-aos="fade-down" id="mainContent" >
     <div class="slider">
       <div class="slide active" style="background-image:url('assets/img/slide1.jpg');"></div>
       <div class="slide" style="background-image:url('assets/img/slide2.jpg');"></div>
@@ -53,7 +66,9 @@
   <section class="verse video" data-aos="fade-up">
     <h2>"I have found the one whom my soul loves."</h2>
     <p>– Song of Solomon 3:4</p>
-     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+     <iframe src="https://www.youtube.com/embed/rNsgHMklBW0?si=EABbyFSuu5foStd6"   frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen></iframe>
   </section>
 
   <section class="story" data-aos="fade-up">
@@ -100,6 +115,20 @@
 
   </section>
 
+  
+  <section class="cards" data-aos="zoom-in-up">
+    <div class="card"><img src="assets/img/invite1.jpg" class="zoomable" alt="invititation 1"></div>
+    <div class="card"><img src="assets/img/invite2.jpg" class="zoomable" alt="invititation 1"></div>
+    <div class="card"><img src="assets/img/invite3.jpg" class="zoomable" alt="invititation 1"></div>
+ 
+  </section>
+
+  <!-- Modal -->
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
+</div>
+
   <section class="venue" data-aos="fade-up">
     <h2>Venue</h2>
     <div class="flex-box">
@@ -142,30 +171,24 @@
   <section class="timeline" data-aos="fade-up">
     <h2>Wedding Timeline</h2>
       <ul>
-    <li>2:00 PM — Arrival of Guests & Entourage at the Church</li>
-    <li>2:30 PM — Wedding Mass & Ceremony</li>
-    <li>3:15 PM — Post-Ceremony Photo Session</li>
-    <li>3:45 PM — Travel to Reception Venue (approx. 20 minutes)</li>
-    <li>4:15 PM — Cocktail Hour</li>
-    <li>5:00 PM — Dinner & Program Begin</li>
-    <li>8:00 PM — Program Ends / Start of After-Party</li>
+    <li class="ico-church">2:00 PM — Arrival of Guests & Entourage at the Church</li>
+    <li class="ico-ring">2:30 PM — Wedding Mass & Ceremony</li>
+    <li class="ico-photo">3:15 PM — Post-Ceremony Photo Session</li>
+    <li class="ico-reception">3:45 PM — Travel to Reception Venue</li>
+    <li class="ico-cocktail">4:15 PM — Cocktail Hour</li>
+    <li class="ico-dinner">5:00 PM — Dinner & Program Begin</li>
+    <li class="ico-party">8:00 PM — Program Ends</li>
   </ul>
   <p class="timeline-note">
     🌿 Let’s celebrate love, laughter, and a lifetime of togetherness as we continue the evening at the reception.
   </p>
   </section>
 
-  <!-- <section class="cards" data-aos="zoom-in-up">
-    <div class="card">Principal Sponsors</div>
-    <div class="card">Secondary Sponsors</div>
-    <div class="card">Best Man & Maid of Honor</div>
-  </section> -->
-
   <section class="gift" data-aos="fade-up">
     <h2>Gift</h2>
     <p><i>As love is what the day is all about,<br>
       your presence is one we can't celebreate without.<br>
-      But should you still belive that a gift is worth giving, <br>
+      But should you still believe that a gift is worth giving, <br>
       a small envelope for our future is a delightful blessing.</i>
     </p>
     <div class="gift-img">
@@ -187,8 +210,8 @@
 
   <section class="snaps" data-aos="fade-up">
     <h2>Snaps & Shares</h2>
-    <p><i>Help us capture the moment and use our hastag</i></p>
-    <p>Hashtag: <strong>#WhenJonahBeylievesInLove</strong></p>
+    <p><i>Help us capture the moment and use our hashtag</i></p>
+    <p><strong>#WhenJonahBeylievesInLove</strong><br><strong>#GodSaveJBestForJonah</strong></p>
     <div class="snaps-btns">
       <div class="snaps-btn-items">
         <a href="https://www.facebook.com/hashtag/WhenJonahBeylievesInLove" target="_blank">
@@ -205,10 +228,20 @@
 
   <section class="rsvp" data-aos="fade-up">
     <h2>RSVP</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfI_M_QTeoGCVYp4aa1QGvMSkbKbYDF9oiGXzAzHucHAJGryw/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeIm_kVHAcINlaXkGz83U5gH4wPRSvtlGx0moMHTIG3nD887A/viewform?embedded=true" width="640" height="850" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </section>
 
+
+<!-- Background Music -->
+<audio id="bgMusic" paused loop>
+  <source src="assets/music/runaway.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Music Control Button -->
+<button id="musicToggle" class="music-btn"><i class="fa-solid fa-volume-high"></i></button>
+
   <button id="goTopBtn" class="goTopBtn" title="Go to top">↑</button>
+
 
   <footer >
     <p>JB & Jonah</p>
