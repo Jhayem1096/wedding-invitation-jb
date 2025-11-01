@@ -19,7 +19,7 @@ setInterval(() => {
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  timer.innerHTML = `<span class="time">${days}<hr><span class="timedesc">DAYS</span></span> <span class="time">${hours}<hr><span class="timedesc">HOURS</span></span> <span class="time">${minutes}<hr><span class="timedesc">MINUTES</span></span> <span class="time">${seconds}<hr><span class="timedesc">SECONDS</span></span>`;
+  timer.innerHTML = `<span class="time">${days}<hr><span class="timedesc">DAYS</span></span> <span class="time">${hours}<hr><span class="timedesc">HOURS</span></span><br class="sp"> <span class="time">${minutes}<hr><span class="timedesc">MINUTES</span></span> <span class="time">${seconds}<hr><span class="timedesc">SECONDS</span></span>`;
 
   if (distance < 0) timer.innerHTML = "It's our wedding day!";
 }, 1000);
@@ -88,6 +88,30 @@ musicBtn.addEventListener("click", () => {
     icon.classList.add("fa-volume-xmark");
   }
 });
+
+// --- YouTube Player API ---
+let player;
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('weddingVideo', {
+    events: {
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+function onPlayerStateChange(event) {
+  // If video is playing (state 1), pause background music
+  if (event.data === YT.PlayerState.PLAYING) {
+    if (!audio.paused) {
+      audio.pause();
+
+      const icon = musicBtn.querySelector("i");
+      icon.classList.remove("fa-volume-high");
+      icon.classList.add("fa-volume-xmark");
+    }
+  }
+}
 
 //opening of envelope
 

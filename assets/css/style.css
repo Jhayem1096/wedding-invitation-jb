@@ -54,6 +54,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+.sp{
+  display: none;
+}
+
+@media (max-width:500px) {
+  .sp{
+    display: block;
+  }
+
+}
 
 body { 
     font-family: 'Georgia', serif; margin:0; padding:0; color:#333; background:#fff; 
@@ -166,6 +176,13 @@ h2 { margin-bottom:15px; font-size:2rem;font-style: italic; color: #c36752;}
   border-left: 2px solid #a1806b;
   position: relative;
   text-align: left;
+
+}
+
+@media (max-width:500px) {
+  .timeline ul{
+    margin-left: 15px;
+  }
 }
 
 .timeline ul li {
@@ -482,8 +499,7 @@ h2 { margin-bottom:15px; font-size:2rem;font-style: italic; color: #c36752;}
 .timeline li { margin:10px 0; }
 
 input, textarea, button { padding:12px; border-radius:5px; border:1px solid #ccc; }
-/* button { background:#b22222; color:#fff; border:none; cursor:pointer; font-weight:bold; transition:all .3s; }
-button:hover { background:#8b1a1a; transform:scale(1.05); } */
+
 
 footer { background:#c36752; color:#fff; padding:10px 20px; }
 
