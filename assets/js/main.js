@@ -150,3 +150,17 @@ modal.onclick = function(e) {
     modal.style.display = 'none';
   }
 }
+
+//show scroll down after 3 seconds on top page
+window.addEventListener("load", () => {
+  const hint = document.getElementById("scrollHint");
+  setTimeout(() => {
+    hint.classList.add("show");
+  }, 3000); // show after 3 seconds
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      hint.style.display = "none"; // hide once they start scrolling
+    }
+  });
+});
